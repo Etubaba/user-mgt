@@ -3,6 +3,7 @@ import * as cors from "cors";
 import connectDB from "./config/db";
 import config from "./config";
 import userRoute from "./modules/user/routes";
+import { Request, Response } from "express";
 
 const app = express();
 
@@ -18,6 +19,10 @@ app.use(
 );
 
 app.use("/", userRoute);
+
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome, working fine 🚀🚀");
+});
 
 app.listen(port, () => {
   console.log(`Server running on ${port}`);
