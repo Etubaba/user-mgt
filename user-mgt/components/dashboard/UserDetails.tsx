@@ -45,8 +45,6 @@ const UserDetails = () => {
 
     const resData = await updateUser(user?._id!, formdata);
 
-    console.log(resData);
-
     if (resData && !resData.error) {
       setErrorMsg("");
       handleUserProps(resData.user);

@@ -58,7 +58,7 @@ const editUser = async (req: Request, res: Response) => {
     });
 
     return res.json({
-      data: updatedUser,
+      user: updatedUser,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });

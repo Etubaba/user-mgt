@@ -47,7 +47,7 @@ const editUser = async (req, res) => {
         }
         const updatedUser = await user_1.default.findByIdAndUpdate(id, Object.assign({}, userData));
         return res.json({
-            data: updatedUser,
+            user: updatedUser,
         });
     }
     catch (err) {

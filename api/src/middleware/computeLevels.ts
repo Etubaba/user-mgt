@@ -41,6 +41,6 @@ export const computeLevels = async (
 
     next();
   } catch (err) {
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
