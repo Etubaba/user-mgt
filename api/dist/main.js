@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({ origin: configRepo.cors.origin, methods: configRepo.cors.methods }));
 app.use("/", routes_1.default);
+app.get("/", (req, res) => {
+    res.send("Welcome, working fine 🚀🚀");
+});
 app.listen(port, () => {
     console.log(`Server running on ${port}`);
 });
