@@ -52,7 +52,7 @@ The REST API to the this app is described below.
 
 `POST /user/register`
 
-    curl -i -H 'Accept: application/json' -d 'full_name=samuel lala&phone=0812323223&email=lamus@gmail.com&password=12345' https://veegil-media-assessment.onrender.com/api/v1/auth/register
+    curl -i -H 'Accept: application/json' -d 'vorname:Leche&nachname=Ama&email=lamus@gmail.com&password=12345&gebracht_von_lvl1:ejjejjdjjdjd&super_commission_permitted:true&street:eurur&location_city:jsjjsj&IBAN:ueueuue' http://localhost:4000/user/register
 
 ### Response
 
@@ -82,7 +82,7 @@ The REST API to the this app is described below.
 
 `POST /token/validate`
 
-    curl -i -H 'Accept: application/json' -d 'refreshToken=mmsmmsm....' http://localhost:4000/token/validate
+    curl -i -H 'Accept: application/json' -d 'token=mmsmmsm....' http://localhost:4000/token/validate
 
 ### Response
 
@@ -153,7 +153,7 @@ IBAN: '4839288388229',
 `POST /user/update/:id`
 `Authorization  Bearer`
 
-    curl -i -H authorization:token 'Accept: application/json'
+    curl -i -H authorization:token 'Accept: application/json' vorname:Leche&nachname=Ama&email=lamus@gmail.com&password=12345&gebracht_von_lvl1:ejjejjdjjdjd&super_commission_permitted:true&street:eurur&location_city:jsjjsj&IBAN:ueueuue' http://localhost:4000/user/update/:id
 
 ### Response
 
