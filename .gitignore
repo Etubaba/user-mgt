@@ -1,0 +1,6 @@
+user-mgt/node_modules
+user-mgt/.env
+
+api/node_modules
+
+api/.env
