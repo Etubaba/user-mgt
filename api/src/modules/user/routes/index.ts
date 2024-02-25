@@ -33,16 +33,6 @@ router.put(
   editUser
 );
 router.post(`${basePath}login`, validateDto(LoginDTO), loginUser);
-router.post(`/token/validte`, validateDto(ValidateTokenDto), refreshToken);
-
-router.delete("/delete", async (req, res) => {
-  const deleteUser = await User.findByIdAndDelete("65d50f06faa8a2c23c3ca2a9");
-  res.json(deleteUser);
-});
-
-router.get("/user/:id", async (req, res) => {
-  const user = await User.findById(req.params.id);
-  res.json({ user, lvl: user.level2 });
-});
+router.post(`/token/validate`, validateDto(ValidateTokenDto), refreshToken);
 
 export default router;

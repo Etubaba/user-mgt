@@ -4,8 +4,8 @@ import { validateToken } from "./request-manager";
 
 export async function middleware(request: NextRequest, response: NextResponse) {
   const token = request.cookies.get("code-a")?.value as string;
-  const serviceRes = { isValid: true };
-  //const serviceRes = await validateToken(token);
+  //const serviceRes = { isValid: true };
+  const serviceRes = await validateToken(token);
 
   const pathname = request.nextUrl.pathname;
 

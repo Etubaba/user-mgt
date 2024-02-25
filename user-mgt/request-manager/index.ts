@@ -1,6 +1,7 @@
 import { RegisterPayload, UpdatePayload } from "@/types";
 import { requestEndpoints } from "./endpoints";
 import { instance } from "./instance";
+import { BASE_URL } from "@/constant";
 
 export const login = async (field: { email: string; password: string }) => {
   try {
@@ -19,17 +20,23 @@ export const login = async (field: { email: string; password: string }) => {
 
 export const validateToken = async (token: string) => {
   try {
-    const response = await fetch(requestEndpoints.validateToken, {
+    const response = await fetch(BASE_URL + requestEndpoints.validateToken, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ token }),
+
+      body: JSON.stringify({ token: token }),
     });
 
-    const data = await response.json();
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! status: ${response.status}`);
+    // }
 
-    if (data.statusCode) throw new Error();
+    const data = await response.json();
+    console.log(data);
+
+    //if (data.statusCode) throw new Error();
     return { isValid: true, data };
   } catch (err: any) {
     console.log(err.message);

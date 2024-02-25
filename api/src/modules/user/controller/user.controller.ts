@@ -102,6 +102,7 @@ const loginUser = async (req: Request, res: Response) => {
 
 const refreshToken = async (req: Request, res: Response) => {
   const { token }: ValidateTokenDto = req.body;
+
   try {
     let decoded: string | jwt.JwtPayload;
 
@@ -121,16 +122,16 @@ const refreshToken = async (req: Request, res: Response) => {
       userEmail = decoded.email;
     }
 
+    console.log("assigned", userEmail);
+
     const user = await User.findOne({
-      where: {
-        email: userEmail,
-      },
+      email: userEmail,
     });
 
     //generate token
     const [accessToken, newRefreshToken] = await Promise.all([
-      generateToken(user.email, "access"),
-      generateToken(user.email, "refresh"),
+      generateToken(userEmail, "access"),
+      generateToken(userEmail, "refresh"),
     ]);
 
     //delete passord from user details
@@ -142,7 +143,7 @@ const refreshToken = async (req: Request, res: Response) => {
       refreshToken: newRefreshToken,
     });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    return res.status(400).json({ message: err.message + "//" });
   }
 };
 

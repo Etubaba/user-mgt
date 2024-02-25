@@ -3,7 +3,6 @@ import { BASE_URL } from "@/constant";
 import React from "react";
 
 const page = () => {
-  console.log(BASE_URL);
   return (
     <div className="bg-[url('/slider3.jpg')] px-4 bg-cover  bg-left-top flex justify-center items-center w-full h-screen">
       <LoginForm />
